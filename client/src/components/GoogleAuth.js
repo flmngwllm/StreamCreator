@@ -28,20 +28,31 @@ onAuthChange = () => {
 this.setState({isSignedIn: this.auth.isSignedIn.get() })
 }
 
-//
+
+//function that allows the user to sign in
+onSignIn = () => {
+this.auth.signIn()
+}
+
+//callback function that allows the user to sign out
+onSignOut = () => {
+this.auth.signOut()
+}
+
+//function checks whether the user is signed in or not
 renderAuthButton(){
     if (this.state.isSignedIn === null) {
         return null
     } else if (this.state.isSignedIn){
         return (
-            <button className="ui red google button">
+            <button onClick={this.onSignOut} className="ui red google button">
                 <i className="google icon" />
                 Sign Out
                 </button>
         )
     } else {
         return (
-            <button className="ui red google button">
+            <button onClick={this.onSignIn} className="ui red google button">
                 <i className="google icon" />
                 Sign In with Google
             </button>
