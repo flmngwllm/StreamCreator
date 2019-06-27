@@ -19,14 +19,30 @@ state = {
                 this.auth = window.gapi.auth2.getAuthInstance()
                 // sets the state and checks to see if user is signed in
                 this.setState({isSignedIn: this.auth.isSignedIn.get() })
+                this.auth.isSignedIn.listen(this.onAuthChange)
             })
         })
     }
+//function is called anytime the users authentication statues is changed
+onAuthChange = () => {
+this.setState({isSignedIn: this.auth.isSignedIn.get() })
+}
+
+//
+renderAuthButton(){
+    if (this.state.isSignedIn === null) {
+        return <div> I don't know if we are signed in</div>
+    } else if (this.state.isSignedIn){
+        return <div>I am signed in</div>
+    } else {
+        return <div>I am not signed in</div>
+    }
+}
 
     render(){
         return(
 <div>
-    GoogleAuth
+    {this.renderAuthButton()}
 </div>
         )
     }
