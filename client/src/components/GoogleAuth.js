@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
+import {signIn, signOut} from '../actions'
 
 class GoogleAuth extends Component{
 
@@ -24,8 +26,12 @@ state = {
         })
     }
 //function is called anytime the users authentication statues is changed
-onAuthChange = () => {
-this.setState({isSignedIn: this.auth.isSignedIn.get() })
+onAuthChange = (isSignedIn) => {
+if (isSignedIn){
+    this.props.signIn()
+} else {
+    this.props.signOut()
+}
 }
 
 
@@ -72,4 +78,4 @@ renderAuthButton(){
     }
 }
 
-export default GoogleAuth;
+export default connect(null, {signIn, signOut})(GoogleAuth);
