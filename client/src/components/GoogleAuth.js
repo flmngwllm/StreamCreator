@@ -25,6 +25,8 @@ state = {
             })
         })
     }
+
+    
 //function is called anytime the users authentication statues is changed
 onAuthChange = (isSignedIn) => {
 if (isSignedIn){
