@@ -28,7 +28,7 @@ class GoogleAuth extends Component{
 //function is called anytime the users authentication statues is changed
 onAuthChange = (isSignedIn) => {
 if (isSignedIn){
-    this.props.signIn()
+    this.props.signIn(this.auth.currentUser.get().getId())
 } else {
     this.props.signOut()
 }
