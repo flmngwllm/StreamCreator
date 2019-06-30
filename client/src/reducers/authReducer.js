@@ -3,7 +3,7 @@ const INITIAL_STATE = {
     isSignedIn: null
 }
 
-//passed the state object and action then created a switch case t
+//passed the state object and action then created a switch case 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type){
         case 'SIGN_IN':
