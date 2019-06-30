@@ -3,18 +3,22 @@ import {Field, reduxForm} from 'redux-form'
 
 class StreamCreate extends Component{
 //helper function that renders the fields
-renderInput = (formProps) =>{
+renderInput = ({input, label}) =>{
     return (
     //takes all the formProps properties and adds them as properties to the input element
-    <input {...formProps.input}/>
+    <div className="field">
+        <label>{label}</label>
+    <input {...input}/>
+    </div>
     )
 }
 
     render(){
         return (
-            <form> 
-                <Field name="title" component={this.renderInput} />
-                <Field name="description" component={this.renderInput}/>
+            <form className="ui form"> 
+                {/* Fields from redux from library that takes in helper function to pass to the components */}
+                <Field name="title" component={this.renderInput} label="Enter Title"/>
+                <Field name="description" component={this.renderInput} label="Enter Description"/>
             </form>
         )
     }
