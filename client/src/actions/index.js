@@ -19,7 +19,7 @@ return {
  //list of values that we entered into our form as an argument
  export const createStream = (formValues) =>{
      return async (dispatch) => {
-    const response = streams.post('/streams', formValues)
+    const response =  await streams.post('/streams', formValues)
     dispatch({ type: CREATE_STREAM, payload: response.data})
      }
  }
