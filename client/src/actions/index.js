@@ -18,9 +18,12 @@ return {
 
  //list of values that we entered into our form as an argument
  export const createStream = (formValues) =>{
-     return async (dispatch) => {
-    const response =  await streams.post('/streams', formValues)
-    dispatch({ type: CREATE_STREAM, payload: response.data})
+     return async (dispatch, getState) => {
+    //accessing the auth piece of state
+    const {userId} = getState().auth
+    // getting key values out of formValues then adding the userId
+    const response =  await streams.post('/streams', {...formValues, userId })
+    dispatch({ type: CREATE_STREAM, payload: response.data })
      }
  }
 
