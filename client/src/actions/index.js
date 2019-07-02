@@ -24,6 +24,8 @@ return {
     // getting key values out of formValues then adding the userId
     const response =  await streams.post('/streams', {...formValues, userId })
     dispatch({ type: CREATE_STREAM, payload: response.data })
+    //programmatic navigation to get the user back to the root route
+    
      }
  }
 
