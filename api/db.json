@@ -1,6 +1,5 @@
 {
   "streams": [
-   
     {
       "title": "this stream",
       "description": "this was made by me",
@@ -24,6 +23,12 @@
       "description": "not sure if true",
       "userId": "106072655677091910984",
       "id": 21
+    },
+    {
+      "title": "Stuff",
+      "description": "not sure",
+      "userId": "106072655677091910984",
+      "id": 22
     }
   ]
 }
