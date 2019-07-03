@@ -8,8 +8,11 @@ class StreamEdit extends Component{
         this.props.fetchStream(this.props.match.params.id);
     }
     
+    //if statement if we dont have out stream print out loading if we print the stream
     render(){
-    console.log(this.props)
+    if (!this.props.stream) {
+        return <div>Loading...</div>
+    }
     return (<div>StreamEdit</div>
      )
     }
