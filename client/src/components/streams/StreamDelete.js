@@ -1,6 +1,7 @@
 import React from 'react'
 import Modal from '../Modal'
 import history from '../../history'
+import actions from '../../actions'
 
 //Delete Stream component
 const StreamDelete = () => {
