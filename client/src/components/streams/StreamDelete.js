@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Modal from '../Modal'
 import history from '../../history'
 import {fetchStream} from '../../actions'
-import connect from 'react-redux'
+import {connect} from 'react-redux'
 
 
 //Delete Stream component
@@ -12,6 +12,7 @@ componentDidMount () {
     this.props.fetchStream(this.props.match.params.id)
 }
 
+// renders the Delete and Cancel Button
     renderActions (){
         return (
         <React.Fragment>
@@ -22,22 +23,31 @@ componentDidMount () {
     }
 
 
-    render () {
+//renders text if there is not a stream available yet then returns the title once the stream becomes available
+    renderContent(){
+        if (!this.props.stream){
+            return 'Are you sure you want to delete this stream?'
+        } 
+        return `Are you sure you want to delete the stream with title: ${this.props.stream.title}`
+    }
 
+
+    render () {
     return (
-        <div>
-            StreamDelete
-            <Modal
+       
+        <Modal
             title="Delete Stream"
-            content="Are you sure you want to delete this Stream?"
+            content={this.renderContent()}
             actions={this.renderActions()} 
-            onDismiss={() => history.push('/')} />
-        </div>
-    )
+            onDismiss={() => history.push('/')} 
+        />
+        )
     }
 }
 
+const mapStateToProps = (state, ownProps) => {
+    return {stream: state.streams[ownProps.match.params.id]}
+}
 
-
-
-export default connect(null, {fetchStream : fetchStream}) (StreamDelete);
+// connected fetchStream from our actions
+export default connect(mapStateToProps, {fetchStream : fetchStream}) (StreamDelete);
