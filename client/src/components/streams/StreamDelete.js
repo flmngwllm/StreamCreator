@@ -1,17 +1,24 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Modal from '../Modal'
 import history from '../../history'
 import actions from '../../actions'
 
 //Delete Stream component
-const StreamDelete = () => {
-    
-    const actions = (
+class StreamDelete extends Component {
+
+
+
+    renderActions (){
+        return (
         <React.Fragment>
             <button className="ui button negative">Delete</button>
             <button className="ui button cancel">Cancel</button>
         </React.Fragment>
     )
+    }
+
+
+    render () {
 
     return (
         <div>
@@ -19,10 +26,11 @@ const StreamDelete = () => {
             <Modal
             title="Delete Stream"
             content="Are you sure you want to delete this Stream?"
-            actions={actions} 
+            actions={this.renderActions()} 
             onDismiss={() => history.push('/')} />
         </div>
     )
+    }
 }
 
 
