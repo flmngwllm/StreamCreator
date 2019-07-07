@@ -1,22 +1,7 @@
 {
   "streams": [
     {
-      "title": "this stream",
-      "description": "this was made by Will",
-      "id": 18
-    },
-    {
-      "title": "this stream",
-      "description": "this was made by me",
-      "id": 19
-    },
-    {
-      "title": "trying to figure out ",
-      "description": "this stuff",
-      "id": 20
-    },
-    {
-      "title": "ducks can fly",
+      "title": "ducks can fly here",
       "description": "not sure if true",
       "userId": "106072655677091910984",
       "id": 21
