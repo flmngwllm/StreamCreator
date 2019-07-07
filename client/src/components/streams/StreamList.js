@@ -4,6 +4,7 @@ import { fetchStreams } from '../../actions'
 import {Link} from 'react-router-dom'
 
 class StreamList extends Component{
+    
 // get a list of the streams
     componentDidMount(){
         this.props.fetchStreams()
