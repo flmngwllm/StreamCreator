@@ -12,7 +12,7 @@ class StreamEdit extends Component{
 
 
     onSubmit = (formValues) => {
-        console.log(formValues)
+        this.props.editStream(this.props.match.params.id, formValues)
     }
     
     //if statement if we dont have out stream print out loading if we print the stream
