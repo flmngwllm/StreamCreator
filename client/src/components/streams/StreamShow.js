@@ -7,28 +7,30 @@ import flv from 'flv.js'
 class StreamShow extends Component {
 constructor(props) {
     super(props);
-
     this.videoRef = React.createRef()
 }
 
-c
 
 // when component is first rendered attempt to get a stream then also build the player
 componentDidMount(){
     const { id } = this.props.match.params
     this.props.fetchStream(id)
-    this.buildPayer()
-    
+    this.buildPlayer()  
 }
 
-// if player has not been buil before or we dont have the stream it will return
-buildPayer(){
-    if(this.player || !this.player.stream){
+
+//attempt to call build player
+componentDidUpdate() {
+    this.buildPlayer()
+}
+
+// if player has been built before or we dont have the stream it will return
+buildPlayer(){
+    if(this.player || !this.props.stream){
         return
     }
 
     const { id } = this.props.match.params
-
     this.player = flv.createPlayer({
         type: 'flv',
         url: `http://localhost:8000/live/${id}.flv`
