@@ -24,6 +24,11 @@ componentDidUpdate() {
     this.buildPlayer()
 }
 
+//tells player to strom streaming video and detach itself from video element
+componentWillUnmount(){
+    this.player.destroy()
+}
+
 // if player has been built before or we dont have the stream it will return
 buildPlayer(){
     if(this.player || !this.props.stream){
